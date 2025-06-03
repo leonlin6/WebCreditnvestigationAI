@@ -20,7 +20,7 @@ export async function GET() {
     return NextResponse.json(companies);
   } catch (error) {
     return NextResponse.json(
-      { error: 'Failed to fetch companies' },
+      { error: error },
       { status: 500 }
     );
   }
