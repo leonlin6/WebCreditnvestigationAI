@@ -21,7 +21,7 @@ export default function Home() {
     const getCompanies = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/companies/name"
+          process.env.NEXT_PUBLIC_API_URL +"/companies/name"
         );
         setCompanies(response.data);
       } catch (error) {
@@ -42,7 +42,8 @@ export default function Home() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/report?year=${selectedYear}&companyName=${selectedCompany}`,
+         
+         process.env.NEXT_PUBLIC_API_URL + `/report?year=${selectedYear}&companyName=${selectedCompany}`,
         {
           responseType: "blob",
           headers: {
